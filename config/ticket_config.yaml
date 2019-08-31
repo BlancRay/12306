@@ -76,11 +76,6 @@ is_auto_code: True
 # 打码平台， 2 为AI识别，需将两个模型文件放到项目根目录下
 auto_code_type: 2
 
-# 打码平台账号
-auto_code_account:
-  user: "931128603"
-  pwd: ""
-
 #  邮箱配置，如果抢票成功，将通过邮件配置通知给您
 #  列举163
 #  email: "xxx@163.com"
@@ -96,9 +91,9 @@ auto_code_account:
 #  host: "smtp.qq.com"
 email_conf:
   is_email: True
-  email: "931128603@qq.com "
-  notice_email_list: "931128603@qq.com"
-  username: "931128603"
+  email: ""
+  notice_email_list: ""
+  username: ""
   password: ""
   host: "smtp.qq.com"
 
@@ -127,3 +122,21 @@ open_time: '13:00:00'
 # 2、测试UnitTest/TestAll/testProxy 测试代理是否可以用
 # 3、开启代理ip
 is_proxy: 0
+
+# 路由器自动切换ip, 目前只支持tplink,
+# is_router: 0表示打开，1表示开启
+# router_time: 以/分钟为单位
+#router_pwd: 路由器登录的密码
+#broadband_user_name: 宽带账号
+#broadband_pwd: 宽带密码
+
+#is_router: 1
+#router_time:
+#router_pwd:
+#broadband_user_name: ""
+#broadband_pwd:
+
+# query线程
+#query_thread: 3
+
+
