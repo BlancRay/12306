@@ -10,6 +10,7 @@
       PS: 
       1. 模型下载链接:https://pan.baidu.com/s/1rS155VjweWVWIJogakechA  密码:bmlm
          群里面也可以下载
+      2. git仓库下载：https://github.com/testerSunshine/12306model.git
     ```
   - 项目依赖包查看 [requirements.txt](requirements.txt)
   - 安装方法-Windows:
@@ -18,13 +19,13 @@
       - 非root用户（避免安装和运行时使用了不同环境）: `pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt`
 
 #### 项目使用说明
-  - 可以配置邮箱，可以配置可以不配置，配置邮箱的格式在[yaml](config/ticket_config.yaml)里面可以看到ex
+  - 可以配置邮箱，可以配置可以不配置，配置邮箱的格式在[配置](TickerConfig.py)里面可以看到ex
   - 可以配置server酱提醒（推荐）， [配置教程](https://www.jianshu.com/p/8d10b5b9c4e3)
-  - 配置[yaml](config/ticket_config.yaml)文件的时候，需注意空格和遵循yaml语法格式
+  - 配置[配置](TickerConfig.py)文件的时候，需注意空格和遵循python语法格式
 
 #### 项目开始
   - 服务器启动:
-      - 修改[config/ticket_config.yaml](config/ticket_config.yaml)文件，按照提示更改自己想要的信息
+      - 修改[配置](TickerConfig.py)文件，按照提示更改自己想要的信息
       - 运行根目录`sudo python run.py`，即可开始
         - 由于新增对时功能，请务必用**sudo，sudo，sudo** 执行，否则会报权限错误，windows打开ide或者cmd请用管理员身份执行`python run.py`，不需要加`sudo`
   - 如果你的服务器安装了docker与docker-compose, 那么就可以通过`docker-compose`进行启动,`docker.sh`脚本对此进行了封装，可以通过如下命令进行启动
@@ -94,11 +95,7 @@
    - 如果下载验证码过期或者下载失败的问题，应该是12306封ip的策略，多重试几次，12306现在封服务器(阿里云和腾讯云)ip比较严重，尽量不要放在服务器里面
    - 目前12306对服务器ip比较敏感，大家还是在自己家里挂着吧
    - 自动更换ip软件目前已支持TPLINK和小米路由器，只限家庭网络[点我跳转](https://github.com/testerSunshine/AutoRouterIP)
-   - 关于登录接口需要识别DEVICES_ID的情况，可以使用本地打开12306，在任意一接口里面抓取DEVICES_ID，填于[login.py](init/login.py)文件中的141行
-       - 原来的 d`evicesId = eval(devicesIdRsp.split("(")[1].split(")")[0].replace("'", ""))["dfp"]`
-       - 更换为 `devicesId = 刚才抓取的DEVICES_ID`，填上即可
-       - 浏览器截图![image](uml/REIL_DEVICEID.png)
-    
+
 #### 感谢一下小伙伴对本项目提供的帮助
    - @sun7127@126.com
    - @ 才
