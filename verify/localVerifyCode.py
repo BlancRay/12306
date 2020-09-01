@@ -11,7 +11,7 @@ if TickerConfig.AUTO_CODE_TYPE == 2:
     from verify import pretreatment
     from verify.mlearn_for_image import preprocess_input
 
-    graph = tf.compat.v1.get_default_graph()
+    graph = tf.Graph()
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
@@ -75,8 +75,7 @@ class Verify:
         # 识别文字
         self.loadTextModel()
         global graph
-        with graph.as_default():
-            label = self.textModel.predict(text)
+        label = self.textModel.predict(text)
         label = label.argmax()
         text = verify_titles[label]
         text_list.append(text)
@@ -90,16 +89,14 @@ class Verify:
             offset = 60
         text = get_text(img, offset=offset)
         if text.mean() < 0.95:
-            with graph.as_default():
-                label = self.textModel.predict(text)
+            label = self.textModel.predict(text)
             label = label.argmax()
             text = verify_titles[label]
             text_list.append(text)
         print("题目为{}".format(text_list))
         # 加载图片分类器
         self.loadImgModel()
-        with graph.as_default():
-            labels = self.imgModel.predict(imgs)
+        labels = self.imgModel.predict(imgs)
         labels = labels.argmax(axis=1)
         results = []
         for pos, label in enumerate(labels):
