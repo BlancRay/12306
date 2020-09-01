@@ -11,7 +11,7 @@ if TickerConfig.AUTO_CODE_TYPE == 2:
     from verify import pretreatment
     from verify.mlearn_for_image import preprocess_input
 
-    graph = tf.get_default_graph()
+    graph = tf.compat.v1.get_default_graph()
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
